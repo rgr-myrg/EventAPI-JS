@@ -5,6 +5,7 @@
 	<js>/util/*.js</js>
 	<js>/patterns/*.js</js>
 	<js>/event/*.js</js>
+	<js>/subscriber/*.js</js>
 	<js>/api/*.js</js>
 	</group>
 </groups>
