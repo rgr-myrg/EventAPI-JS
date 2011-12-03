@@ -7,10 +7,12 @@
 			}
 		};
 		this.remove = function(listener){
-			var size = listeners.length;
-			for(var x=0; x < size; x++){
-				if(listeners[x] === listener){
-					listeners[x] = function(){return null;};
+			if(typeof listener === 'function'){
+				var size = listeners.length;
+				for(var x=0; x < size; x++){
+					if(listeners[x] === listener){
+						listeners[x] = function(){return null;};
+					}
 				}
 			}
 		};
