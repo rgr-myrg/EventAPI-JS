@@ -1,18 +1,23 @@
 (function(BTG){
 	BTG.Event = function(obj){
 		var listeners = [];
-		this.add = function(listener){
+		this.add = function(listener, scope){
 			if(typeof listener === 'function'){
-				listeners.push(listener);
+				listeners.push({
+					listener : listener,
+					scope    : scope
+				});
 			}
 		};
 		this.remove = function(listener){
-			if(typeof listener === 'function'){
-				var size = listeners.length;
-				for(var x=0; x < size; x++){
-					if(listeners[x] === listener){
-						listeners[x] = function(){return null;};
+			var size = listeners.length;
+			for(var x=0; x < size; x++){
+				try{
+					var item = listeners[x];
+					if(item.listener === listener){
+						item.listener = function(){return null;};
 					}
+				}catch(e){
 				}
 			}
 		};
@@ -20,7 +25,8 @@
 			var size = listeners.length;
 			for(var x=0; x < size; x++){
 				try{
-					listeners[x].apply(this,arguments);
+					var item = listeners[x];
+					item.listener.apply(item.scope, arguments);
 				}catch(e){
 				}
 			}
