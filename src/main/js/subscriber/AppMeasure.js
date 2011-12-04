@@ -4,11 +4,12 @@
 		return {
 			onRegister: function(){
 				console.log("AppMeasure.onRegister");
-				var event = BTG.PlayerEvents;
-				event.ON_CONFIG.add(this.onConfig);
-				event.ON_PLAY.add(this.onPlay);
-				event.ON_PLAYHEAD.add(this.onPlayhead);
-				event.ON_PAUSE.add(this.onPause);
+				return {
+					ON_CONFIG   : this.onConfig,
+					ON_PLAY     : this.onPlay,
+					ON_PLAYHEAD : this.onPlayhead,
+					ON_PAUSE    : this.onPause
+				};
 			},
 			onConfig: function(data){
 				console.log("AppMeasure.onConfig data:",data);
