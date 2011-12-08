@@ -2,10 +2,10 @@
 	BTG.HashMap = function(){
 		var keys = {};
 		return {
-			item : function(id, data){
-				if(!keys[id]){
-					keys[id] = data;
-				}
+			put : function(id, data){
+				keys[id] = data;
+			},
+			get : function(id){
 				return keys[id];
 			},
 			clear : function(id){
@@ -14,16 +14,18 @@
 			flush : function(){
 				keys = {};
 			},
+			item : function(id, data){
+				if(!keys[id]){
+					keys[id] = data;
+				}
+				return keys[id];
+			},
 			getItems : function(){
 				var temp = {};
 				for(var i in keys){
 					temp[i]=keys[i];
 				}
 				return temp;
-			},
-			put : this.item,
-			get : function(id){
-				return keys[id];
 			}
 		};
 	};
