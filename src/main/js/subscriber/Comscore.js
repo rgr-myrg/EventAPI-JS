@@ -1,5 +1,5 @@
 (function(BTG){
-	BTG.Comscore = (function(){
+	BTG.Comscore = function(){
 		var	constant = BTG.ComscoreVars,
 			config   = null,
 			getData  = function(metadata){
@@ -47,5 +47,5 @@
 				});
 			}
 		};
-	}());
+	};
 })(BTG);

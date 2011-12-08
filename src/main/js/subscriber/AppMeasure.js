@@ -1,5 +1,5 @@
 (function(BTG){
-	BTG.AppMeasure = (function(){
+	BTG.AppMeasure = function(){
 		var config = null;
 		return {
 			onRegister: function(){
@@ -25,5 +25,5 @@
 				console.log("AppMeasure.onPause playhead:"+playhead);
 			}
 		};
-	}());
+	};
 })(BTG);
