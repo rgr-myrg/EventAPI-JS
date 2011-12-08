@@ -3,7 +3,7 @@
 		var keys = {};
 		return {
 			item : function(id, data){
-				if(!keys[id] && typeof id === 'string'){
+				if(!keys[id]){
 					keys[id] = data;
 				}
 				return keys[id];
