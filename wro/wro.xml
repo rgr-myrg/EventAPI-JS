@@ -2,10 +2,11 @@
 <groups xmlns="http://www.isdc.ro/wro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.isdc.ro/wro wro.xsd">
 	<group name="EventAPI">
 	<js>/BTG.js</js>
+	<js>/constants/*.js</js>
+	<js>/pattern/*.js</js>
 	<js>/util/*.js</js>
-	<js>/patterns/*.js</js>
 	<js>/event/*.js</js>
-	<js>/subscriber/*.js</js>
 	<js>/api/*.js</js>
+	<js>/subscriber/*.js</js>
 	</group>
 </groups>
