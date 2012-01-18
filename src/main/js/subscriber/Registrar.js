@@ -31,9 +31,13 @@
 					api.register(new BTG.BeaconReporter);
 					evt.remove(this.onMetadata);
 					evt.dispatch(metadata);
+
+					this.onMetadata = function(){
+						return null;
+					};
 				}
 			},
-			init: function(){
+			init : function(){
 				api.register(this);
 			}
 		};
