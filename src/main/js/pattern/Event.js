@@ -2,21 +2,18 @@
 	BTG.Event = function(obj){
 		var listeners = [];
 		return {
-			add : function(listener, scope){
-				if(typeof listener === 'function'){
-					listeners.push({
-						listener : listener,
-						scope    : scope
-					});
+			add : function(fn, ob){
+				if(typeof fn === 'function'){
+					listeners.push(new BTG.Listener(fn, ob));
 				}
 			},
 			remove : function(listener){
 				var size = listeners.length;
 				for(var x=0; x < size; x++){
 					try{
-						var item = listeners[x];
-						if(item.listener === listener){
-							item.listener = function(){return null;};
+						var listener = listeners[x];
+						if(listener.getCallback() === listener){
+							listener.remove();
 						}
 					}catch(e){
 					}
@@ -27,7 +24,7 @@
 				for(var x=0; x < size; x++){
 					try{
 						var item = listeners[x];
-						item.listener.apply(item.scope, arguments);
+						item.dispatch(arguments);
 					}catch(e){
 					}
 				}
